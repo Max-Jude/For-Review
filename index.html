@@ -1,0 +1,3371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>De Wisdom Comprehensive Academy | A Citadel of Great Learning</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans, Inter & Outfit for modern, clean minimalism typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN for utility support -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- ==========================================
+       CSS STYLING - LOGICAL SECTION 1 (CLEAN MINIMALISM THEME)
+       ========================================== -->
+  <style>
+    /* --- CSS VARIABLES & CLEAN MINIMALISM THEME TOKEN SYSTEM --- */
+    :root {
+      /* Brand Color Palette */
+      --navy-primary: #0b1a30;
+      --navy-dark: #060e1a;
+      --navy-light: #15294a;
+      --navy-accent: #1e3a68;
+      --accent-green: #cbf5dd;
+      --accent-green-dark: #14532d;
+      --accent-green-hover: #b2ebd0;
+
+      /* Neutral Color Tokens (Clean Minimalism Light Mode) */
+      --bg-main: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-elevated: #f1f5f9;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-light: #94a3b8;
+      --border-color: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgba(11, 26, 48, 0.04);
+      --shadow-md: 0 4px 16px -2px rgba(11, 26, 48, 0.06), 0 2px 6px -1px rgba(11, 26, 48, 0.04);
+      --shadow-lg: 0 12px 32px -4px rgba(11, 26, 48, 0.08), 0 4px 12px -2px rgba(11, 26, 48, 0.04);
+
+      /* Status Colors */
+      --status-active-blue: #2563eb;
+      --status-graduated-green: #10b981;
+      --status-inactive-red: #ef4444;
+
+      /* Clean Minimalism Design Tokens */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+      --transition-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-normal: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      --max-width: 1200px;
+    }
+
+    /* Dark Mode Theme Variables (Clean Minimalist Dark) */
+    body.dark-mode {
+      --bg-main: #0a0f1d;
+      --bg-card: #111827;
+      --bg-elevated: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-light: #64748b;
+      --border-color: #1e293b;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.5);
+    }
+
+    /* --- BASE RESET & CLEAN TYPOGRAPHY --- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-main);
+      line-height: 1.25;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* --- HEADER & NAVIGATION --- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--navy-primary);
+      color: #ffffff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      background-color: var(--accent-green);
+      color: var(--navy-primary);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.2rem;
+      box-shadow: 0 2px 8px rgba(203, 245, 221, 0.3);
+    }
+
+    .nav-links-desktop {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      padding: 0.45rem 0.9rem;
+      border-radius: var(--radius-sm);
+      font-weight: 500;
+      font-size: 0.925rem;
+      color: rgba(255, 255, 255, 0.85);
+      transition: var(--transition-fast);
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .nav-link:hover {
+      color: var(--accent-green);
+      background-color: rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-link.active {
+      color: var(--navy-primary);
+      background-color: var(--accent-green);
+      font-weight: 700;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .theme-toggle-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      padding: 0.45rem 0.85rem;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: var(--transition-fast);
+    }
+
+    .theme-toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+      color: var(--accent-green);
+    }
+
+    /* Hamburger & Dropdown Menu */
+    .menu-trigger-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.15rem;
+      transition: var(--transition-fast);
+    }
+
+    .menu-trigger-btn:hover {
+      background: var(--accent-green);
+      color: var(--navy-primary);
+    }
+
+    .dropdown-menu-wrapper {
+      position: relative;
+    }
+
+    .nav-dropdown-content {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 0.5rem;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      min-width: 220px;
+      padding: 0.5rem 0;
+      display: none;
+      z-index: 1001;
+    }
+
+    .nav-dropdown-content.show {
+      display: block;
+      animation: fadeIn 0.18s ease;
+    }
+
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.7rem 1.25rem;
+      color: var(--text-main);
+      font-size: 0.925rem;
+      font-weight: 500;
+      transition: var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .dropdown-item:hover {
+      background-color: var(--bg-elevated);
+      color: var(--navy-primary);
+    }
+
+    body.dark-mode .dropdown-item:hover {
+      color: var(--accent-green);
+    }
+
+    /* Mobile Drawer Menu */
+    .mobile-menu-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+    }
+
+    .mobile-menu-drawer {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 300px;
+      height: 100%;
+      background-color: var(--navy-primary);
+      color: #ffffff;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      z-index: 2001;
+      transition: right 0.25s ease;
+      box-shadow: -5px 0 25px rgba(0,0,0,0.3);
+    }
+
+    .mobile-menu-drawer.open {
+      right: 0;
+    }
+
+    .mobile-menu-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 1rem;
+    }
+
+    .mobile-nav-link {
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.05rem;
+      font-weight: 500;
+      display: block;
+      cursor: pointer;
+    }
+
+    .mobile-nav-link:hover, .mobile-nav-link.active {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--accent-green);
+    }
+
+    /* --- PAGE SPA SECTIONS --- */
+    .main-content {
+      flex: 1;
+      padding: 2.5rem 0;
+    }
+
+    .page-section {
+      display: none;
+    }
+
+    .page-section.active {
+      display: block;
+      animation: fadeIn 0.25s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- CLEAN MINIMALISM SECTION HEADERS & CARDS --- */
+    .section-title-block {
+      margin-bottom: 2.25rem;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      color: var(--accent-green-dark);
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.35rem;
+      display: inline-block;
+      padding: 0.2rem 0.75rem;
+      background-color: var(--accent-green);
+      border-radius: var(--radius-full);
+    }
+
+    body.dark-mode .section-subtitle {
+      background-color: rgba(203, 245, 221, 0.15);
+      color: var(--accent-green);
+    }
+
+    .section-title {
+      font-size: 2.25rem;
+      color: var(--navy-primary);
+      margin-bottom: 0.5rem;
+      font-weight: 800;
+    }
+
+    body.dark-mode .section-title {
+      color: #ffffff;
+    }
+
+    .section-description {
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: 1.025rem;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-normal);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: rgba(11, 26, 48, 0.12);
+    }
+
+    body.dark-mode .card:hover {
+      border-color: rgba(203, 245, 221, 0.2);
+    }
+
+    /* --- HOME SLIDER SECTION --- */
+    .slider-container {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 3rem;
+      background-color: var(--navy-dark);
+      border: 1px solid var(--border-color);
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.7s ease-in-out;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slide-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(6, 14, 26, 0.92) 0%, rgba(6, 14, 26, 0.35) 55%, transparent 100%);
+    }
+
+    .slide-caption {
+      position: relative;
+      z-index: 10;
+      padding: 3rem 2.5rem;
+      color: #ffffff;
+      max-width: 700px;
+    }
+
+    .slide-tag {
+      display: inline-block;
+      background-color: var(--accent-green);
+      color: var(--accent-green-dark);
+      padding: 0.25rem 0.85rem;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+
+    .slide-title {
+      font-size: 2.2rem;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .slide-text {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 20;
+      background: rgba(6, 14, 26, 0.65);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.2);
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.25rem;
+      transition: var(--transition-fast);
+      backdrop-filter: blur(6px);
+    }
+
+    .slider-btn:hover {
+      background: var(--accent-green);
+      color: var(--navy-primary);
+      border-color: var(--accent-green);
+    }
+
+    .slider-btn.prev { left: 1rem; }
+    .slider-btn.next { right: 1rem; }
+
+    .slider-dots {
+      position: absolute;
+      bottom: 1.25rem;
+      right: 2rem;
+      z-index: 20;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .dot.active {
+      background: var(--accent-green);
+      width: 28px;
+    }
+
+    /* Quick Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .admin-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-card-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .stat-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .stat-icon-students {
+      background-color: rgba(0, 102, 218, 0.12);
+      color: #0066DA;
+    }
+
+    .stat-icon-staff {
+      background-color: rgba(38, 132, 252, 0.12);
+      color: #2684FC;
+    }
+
+    .stat-icon-applicants {
+      background-color: rgba(245, 158, 11, 0.15);
+      color: #D97706;
+    }
+
+    body.dark-mode .stat-icon-students {
+      background-color: rgba(0, 102, 218, 0.25);
+      color: #60A5FA;
+    }
+
+    body.dark-mode .stat-icon-staff {
+      background-color: rgba(38, 132, 252, 0.25);
+      color: #93C5FD;
+    }
+
+    body.dark-mode .stat-icon-applicants {
+      background-color: rgba(245, 158, 11, 0.25);
+      color: #FBBF24;
+    }
+
+    .stat-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-green-dark);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-fast);
+    }
+
+    .stat-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    body.dark-mode .stat-card {
+      border-left-color: var(--accent-green);
+    }
+
+    .stat-number {
+      font-size: 2.25rem;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      color: var(--navy-primary);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    body.dark-mode .stat-number {
+      color: var(--accent-green);
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* AI Academic Assistant Chatbot Styles */
+    .ai-chatbot-card {
+      grid-column: 1 / -1;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1.5rem;
+    }
+
+    .ai-chatbot-header {
+      padding: 1.15rem 1.5rem;
+      background: linear-gradient(135deg, var(--navy-primary) 0%, #1e3a8a 100%);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .ai-chatbot-title-box {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .ai-bot-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.18);
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .ai-chatbot-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-full);
+      background: rgba(16, 185, 129, 0.25);
+      color: #34d399;
+      border: 1px solid rgba(52, 211, 153, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .ai-quick-prompts {
+      padding: 0.85rem 1.25rem;
+      background: var(--bg-elevated);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: thin;
+    }
+
+    .ai-prompt-chip {
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.45rem 0.95rem;
+      border-radius: var(--radius-full);
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      cursor: pointer;
+      transition: var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      flex-shrink: 0;
+    }
+
+    .ai-prompt-chip:hover {
+      border-color: var(--navy-light);
+      background: rgba(0, 102, 218, 0.08);
+      color: var(--navy-primary);
+      transform: translateY(-1px);
+    }
+
+    .ai-chat-body {
+      height: 360px;
+      overflow-y: auto;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      background: var(--bg-card);
+      scroll-behavior: smooth;
+    }
+
+    .chat-msg-row {
+      display: flex;
+      gap: 0.75rem;
+      max-width: 88%;
+    }
+
+    .chat-msg-row.user {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .chat-msg-row.bot {
+      align-self: flex-start;
+    }
+
+    .chat-msg-bubble {
+      padding: 0.95rem 1.2rem;
+      border-radius: 16px;
+      font-size: 0.94rem;
+      line-height: 1.6;
+      word-break: break-word;
+      white-space: pre-wrap;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .chat-msg-row.user .chat-msg-bubble {
+      background: var(--navy-primary);
+      color: #ffffff;
+      border-bottom-right-radius: 4px;
+    }
+
+    .chat-msg-row.bot .chat-msg-bubble {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      border-bottom-left-radius: 4px;
+    }
+
+    .chat-msg-bubble b, .chat-msg-bubble strong {
+      color: #2563eb;
+      font-weight: 700;
+    }
+
+    body.dark-mode .chat-msg-bubble b, body.dark-mode .chat-msg-bubble strong {
+      color: #60a5fa;
+    }
+
+    .chat-msg-row.user .chat-msg-bubble b {
+      color: #93c5fd;
+    }
+
+    .chat-msg-time {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+      display: block;
+    }
+
+    .ai-chat-footer {
+      padding: 1rem 1.25rem;
+      border-top: 1px solid var(--border-color);
+      background: var(--bg-elevated);
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .ai-chat-input {
+      flex: 1;
+      padding: 0.75rem 1.15rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-color);
+      font-size: 0.95rem;
+      outline: none;
+      transition: var(--transition-fast);
+    }
+
+    .ai-chat-input:focus {
+      border-color: var(--navy-light);
+      box-shadow: 0 0 0 3px rgba(0, 102, 218, 0.15);
+    }
+
+    /* --- FORM STYLES --- */
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background-color: var(--bg-main);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      transition: var(--transition-fast);
+      font-size: 0.95rem;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--navy-light);
+      box-shadow: 0 0 0 3px rgba(11, 26, 48, 0.12);
+      background-color: var(--bg-card);
+    }
+
+    .password-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .password-wrapper .form-input {
+      padding-right: 2.75rem;
+    }
+
+    .password-toggle-btn {
+      position: absolute;
+      right: 0.75rem;
+      background: transparent;
+      border: none;
+      color: var(--text-light);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.25rem;
+      border-radius: 4px;
+      transition: var(--transition-fast);
+      z-index: 2;
+    }
+
+    .password-toggle-btn:hover {
+      color: var(--navy-primary);
+    }
+
+    body.dark-mode .password-toggle-btn:hover {
+      color: var(--accent-green);
+    }
+
+    body.dark-mode .form-input:focus, 
+    body.dark-mode .form-select:focus, 
+    body.dark-mode .form-textarea:focus {
+      border-color: var(--accent-green);
+      box-shadow: 0 0 0 3px rgba(203, 245, 221, 0.15);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      border: none;
+      transition: var(--transition-fast);
+      text-align: center;
+      font-size: 0.925rem;
+    }
+
+    .btn-primary {
+      background-color: var(--navy-primary);
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(11, 26, 48, 0.15);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--navy-light);
+      transform: translateY(-1px);
+    }
+
+    body.dark-mode .btn-primary {
+      background-color: var(--accent-green);
+      color: var(--navy-dark);
+    }
+
+    body.dark-mode .btn-primary:hover {
+      background-color: var(--accent-green-hover);
+    }
+
+    .btn-accent {
+      background-color: var(--accent-green);
+      color: var(--accent-green-dark);
+      font-weight: 700;
+    }
+
+    .btn-accent:hover {
+      background-color: var(--accent-green-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--bg-elevated);
+      border-color: rgba(11, 26, 48, 0.2);
+    }
+
+    .btn-danger {
+      background-color: var(--status-inactive-red);
+      color: #ffffff;
+    }
+
+    .btn-danger:hover {
+      opacity: 0.9;
+    }
+
+    .btn-sm {
+      padding: 0.4rem 0.85rem;
+      font-size: 0.85rem;
+    }
+
+    /* --- LOGIN SECTION --- */
+    .auth-container {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .auth-tabs {
+      display: flex;
+      background-color: var(--bg-elevated);
+      padding: 0.25rem;
+      border-radius: var(--radius-md);
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .auth-tab-btn {
+      flex: 1;
+      padding: 0.6rem;
+      border: none;
+      background: none;
+      font-weight: 600;
+      font-size: 0.925rem;
+      color: var(--text-muted);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .auth-tab-btn.active {
+      background-color: var(--bg-card);
+      color: var(--navy-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    body.dark-mode .auth-tab-btn.active {
+      color: var(--accent-green);
+    }
+
+    .demo-login-box {
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px dashed var(--border-color);
+    }
+
+    .demo-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    /* --- STATUS INDICATOR BLINKING DOTS --- */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      font-size: 0.825rem;
+      font-weight: 600;
+      background-color: var(--accent-green);
+      color: var(--accent-green-dark);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    /* Blinking pulse effect */
+    .status-dot::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      opacity: 0.75;
+      animation: blinkPulse 1.6s infinite ease-in-out;
+    }
+
+    /* Active -> Blue blinking dot */
+    .status-dot.active {
+      background-color: var(--status-active-blue);
+    }
+    .status-dot.active::after {
+      background-color: var(--status-active-blue);
+    }
+
+    /* Graduated -> Green blinking dot */
+    .status-dot.graduated {
+      background-color: var(--status-graduated-green);
+    }
+    .status-dot.graduated::after {
+      background-color: var(--status-graduated-green);
+    }
+
+    /* Inactive -> Red blinking dot */
+    .status-dot.inactive {
+      background-color: var(--status-inactive-red);
+    }
+    .status-dot.inactive::after {
+      background-color: var(--status-inactive-red);
+    }
+
+    @keyframes blinkPulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.8); opacity: 0; }
+      100% { transform: scale(0.95); opacity: 0; }
+    }
+
+    /* --- DASHBOARD STYLES --- */
+    .dashboard-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background-color: var(--navy-primary);
+      color: #ffffff;
+      padding: 1.75rem 2rem;
+      border-radius: var(--radius-md);
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .dashboard-user-info h2 {
+      color: #ffffff;
+      font-size: 1.6rem;
+    }
+
+    .dashboard-user-info p {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.95rem;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Table Component */
+    .data-table-container {
+      overflow-x: auto;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .data-table th, .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.9rem;
+    }
+
+    .data-table th {
+      background-color: var(--bg-elevated);
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+    }
+
+    .data-table tr:hover {
+      background-color: rgba(11, 26, 48, 0.02);
+    }
+
+    body.dark-mode .data-table tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* --- SEARCH BAR --- */
+    .search-box-wrapper {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .search-box-wrapper .form-input {
+      flex: 1;
+    }
+
+    /* --- ABOUT PAGE STYLES --- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .leadership-card {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 1.25rem;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .avatar-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: var(--navy-primary);
+      color: var(--accent-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.35rem;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(11, 26, 48, 0.2);
+    }
+
+    /* --- MODAL DIALOG --- */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 14, 26, 0.7);
+      backdrop-filter: blur(6px);
+      z-index: 3000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .modal-box {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 600px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: var(--transition-fast);
+    }
+
+    .modal-close-btn:hover {
+      color: var(--text-main);
+    }
+
+    /* Result Card Preview in Modal */
+    .result-sheet {
+      border: 2px solid var(--navy-primary);
+      padding: 2rem;
+      border-radius: var(--radius-md);
+      background: #ffffff;
+      color: #0f172a;
+    }
+
+    /* Toast Notification */
+    .toast-container {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 4000;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .toast {
+      background-color: var(--navy-primary);
+      color: #ffffff;
+      border-left: 4px solid var(--accent-green);
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-lg);
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      animation: slideInRight 0.3s ease;
+    }
+
+    @keyframes slideInRight {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    /* --- FOOTER --- */
+    .site-footer {
+      background-color: var(--navy-dark);
+      color: rgba(255,255,255,0.7);
+      padding: 3.5rem 0 1.75rem;
+      margin-top: auto;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.9rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-title {
+      color: #ffffff;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-green);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* Floating Social Media Bar */
+    .floating-social-bar {
+      position: fixed;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2500;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: var(--bg-card);
+      padding: 8px 6px;
+      border-radius: 30px;
+      box-shadow: 0 4px 20px rgba(11, 26, 48, 0.16), 0 2px 8px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--border-color);
+      transition: var(--transition-normal);
+    }
+
+    body.dark-mode .floating-social-bar {
+      background-color: #111827;
+      border-color: rgba(255, 255, 255, 0.14);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .social-link-btn {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    }
+
+    .social-link-btn:hover {
+      transform: scale(1.12) translateX(-2px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+    }
+
+    /* WhatsApp button */
+    .social-link-btn.whatsapp {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+    }
+
+    /* Facebook button */
+    .social-link-btn.facebook {
+      background: linear-gradient(135deg, #1877F2, #0052cc);
+    }
+
+    /* LinkedIn button */
+    .social-link-btn.linkedin {
+      background: linear-gradient(135deg, #0A66C2, #004182);
+    }
+
+    /* Tooltip on hover */
+    .social-tooltip {
+      position: absolute;
+      right: 52px;
+      top: 50%;
+      transform: translateY(-50%) translateX(10px);
+      background-color: var(--navy-primary);
+      color: #ffffff;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    body.dark-mode .social-tooltip {
+      background-color: var(--accent-green);
+      color: var(--navy-primary);
+      font-weight: 700;
+    }
+
+    .social-tooltip::after {
+      content: '';
+      position: absolute;
+      right: -4px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 4px 0 4px 4px;
+      border-style: solid;
+      border-color: transparent transparent transparent var(--navy-primary);
+    }
+
+    body.dark-mode .social-tooltip::after {
+      border-color: transparent transparent transparent var(--accent-green);
+    }
+
+    .social-link-btn:hover .social-tooltip {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .nav-links-desktop { display: none; }
+      .slider-container { height: 380px; }
+      .slide-caption { padding: 1.5rem; }
+      .slide-title { font-size: 1.5rem; }
+      .dashboard-header { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 640px) {
+      .floating-social-bar {
+        right: 8px;
+        padding: 6px 4px;
+        gap: 8px;
+      }
+      .social-link-btn {
+        width: 36px;
+        height: 36px;
+      }
+      .social-link-btn svg {
+        width: 18px;
+        height: 18px;
+      }
+      .social-tooltip {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================
+       HTML STRUCTURE - LOGICAL SECTION 2
+       ========================================== -->
+
+  <!-- TOP NAVIGATION BAR -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <!-- Brand Logo -->
+      <a href="javascript:void(0)" onclick="switchPage('home')" class="brand-logo" id="brand-logo-btn">
+        <div class="brand-icon">D</div>
+        <span>De Wisdom Comprehensive Academy</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav id="desktop-nav">
+        <ul class="nav-links-desktop">
+          <li><button class="nav-link active" onclick="switchPage('home')" id="nav-btn-home">Home</button></li>
+          <li><button class="nav-link" onclick="switchPage('login-staff')" id="nav-btn-staff">Staff Portal</button></li>
+          <li><button class="nav-link" onclick="switchPage('login-student')" id="nav-btn-student">Student Portal</button></li>
+          <li><button class="nav-link" onclick="switchPage('about')" id="nav-btn-about">About</button></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions: Dark Mode & Hamburger Dropdown -->
+      <div class="header-actions">
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle-btn" onclick="toggleDarkMode()" id="theme-toggle" title="Toggle Dark/Light Mode">
+          <span id="theme-icon">🌙</span>
+          <span id="theme-label">Dark</span>
+        </button>
+
+        <!-- Dropdown Menu Trigger for Other Pages (Admin, Admission, Contact) -->
+        <div class="dropdown-menu-wrapper">
+          <button class="menu-trigger-btn" onclick="toggleDropdownMenu()" id="menu-trigger" title="More pages">
+            &#9776;
+          </button>
+          <div class="nav-dropdown-content" id="nav-dropdown">
+            <div class="dropdown-item" onclick="switchPage('dashboard-admin'); closeDropdownMenu();">
+              <span>⚡</span> Admin Portal
+            </div>
+            <div class="dropdown-item" onclick="switchPage('admission'); closeDropdownMenu();">
+              <span>📝</span> Admission Form
+            </div>
+            <div class="dropdown-item" onclick="switchPage('contact'); closeDropdownMenu();">
+              <span>📞</span> Contact Us
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER MENU OVERLAY -->
+  <div class="mobile-menu-overlay" id="mobile-overlay" onclick="toggleMobileMenu()"></div>
+  <aside class="mobile-menu-drawer" id="mobile-drawer">
+    <div class="mobile-menu-header">
+      <div class="brand-logo">
+        <div class="brand-icon">D</div>
+        <span>De Wisdom</span>
+      </div>
+      <button class="menu-trigger-btn" onclick="toggleMobileMenu()">&times;</button>
+    </div>
+    <nav>
+      <a class="mobile-nav-link active" onclick="switchPage('home'); toggleMobileMenu();">Home</a>
+      <a class="mobile-nav-link" onclick="switchPage('login-staff'); toggleMobileMenu();">Staff Portal</a>
+      <a class="mobile-nav-link" onclick="switchPage('login-student'); toggleMobileMenu();">Student Portal</a>
+      <a class="mobile-nav-link" onclick="switchPage('about'); toggleMobileMenu();">About De Wisdom</a>
+      <a class="mobile-nav-link" onclick="switchPage('dashboard-admin'); toggleMobileMenu();">Admin Portal</a>
+      <a class="mobile-nav-link" onclick="switchPage('admission'); toggleMobileMenu();">Admission Application</a>
+      <a class="mobile-nav-link" onclick="switchPage('contact'); toggleMobileMenu();">Contact Us</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT SPA PAGES -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- 1. HOME SECTION -->
+      <section id="page-home" class="page-section active">
+        <!-- Minimal Image Slider (3 Slides) -->
+        <div class="slider-container" id="hero-slider" onmouseenter="pauseSlider()" onmouseleave="startSlider()">
+          
+          <!-- Slide 1: Entrance -->
+          <div class="slide active" id="slide-0">
+            <img src="/src/assets/images/school_entrance_1785251734577.jpg" alt="De Wisdom Comprehensive Academy School Entrance" class="slide-image" />
+            <div class="slide-overlay"></div>
+            <div class="slide-caption">
+              <span class="slide-tag">Welcome to De Wisdom</span>
+              <h1 class="slide-title">A citadel of great learning</h1>
+              <p class="slide-text">Inspiring academic brilliance, ethical leadership, and creative innovation for tomorrow's pioneers.</p>
+            </div>
+          </div>
+
+          <!-- Slide 2: Science Lab -->
+          <div class="slide" id="slide-1">
+            <img src="/src/assets/images/science_lab_1785251747755.jpg" alt="Modern Science Laboratory" class="slide-image" />
+            <div class="slide-overlay"></div>
+            <div class="slide-caption">
+              <span class="slide-tag">Advanced Research</span>
+              <h2 class="slide-title">State-of-the-Art Science & Tech Labs</h2>
+              <p class="slide-text">Equipped with cutting-edge instruments to foster hands-on scientific discovery and inquiry.</p>
+            </div>
+          </div>
+
+          <!-- Slide 3: Football Field -->
+          <div class="slide" id="slide-2">
+            <img src="/src/assets/images/students_football_1785251759143.jpg" alt="Students playing football" class="slide-image" />
+            <div class="slide-overlay"></div>
+            <div class="slide-caption">
+              <span class="slide-tag">Athletic Excellence</span>
+              <h2 class="slide-title">Fostering Teamwork & Sportsmanship</h2>
+              <p class="slide-text">Empowering physical development, discipline, and healthy camaraderie across all grades.</p>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <button class="slider-btn prev" onclick="prevSlide()" aria-label="Previous Slide">&#10094;</button>
+          <button class="slider-btn next" onclick="nextSlide()" aria-label="Next Slide">&#10095;</button>
+          <div class="slider-dots">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+            <span class="dot" onclick="goToSlide(2)"></span>
+          </div>
+        </div>
+
+        <!-- Brief History Section -->
+        <div style="margin-top: 2.5rem; margin-bottom: 2.5rem;">
+          <div class="card" style="padding: 2rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+              <span class="section-subtitle" style="margin-bottom: 0;">Our Legacy</span>
+            </div>
+            <h2 style="font-size: 1.75rem; color: var(--navy-primary); margin-bottom: 1rem;">Brief History of De Wisdom Comprehensive Academy</h2>
+            <div style="color: var(--text-muted); font-size: 0.975rem; line-height: 1.7; display: flex; flex-direction: column; gap: 0.85rem;">
+              <p>
+                Established with a foundational commitment to educational distinction and moral rectitude, <strong>De Wisdom Comprehensive Academy</strong> opened its doors as a sanctuary dedicated to the total development of the young mind. From its modest beginnings, the institution was built on the firm belief that true education harmonizes intellectual mastery with character building.
+              </p>
+              <p>
+                Over the decades, De Wisdom has expanded into a full-fledged comprehensive citadel of learning, featuring state-of-the-art science laboratories, modern ICT centers, extensive sports facilities, and an enriched curriculum. Guided by seasoned master educators, the academy continues to raise generations of scholars who consistently achieve outstanding academic milestones, demonstrate exemplary civic leadership, and excel in higher institutions worldwide.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mission & Vision Section -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem; margin-bottom: 2.5rem;">
+          <!-- Mission Card -->
+          <div class="card" style="padding: 2rem; border-top: 4px solid var(--navy-primary);">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+              <span class="section-subtitle" style="margin-bottom: 0;">Our Purpose</span>
+              <div style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--accent-green); color: var(--navy-primary); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">🎯</div>
+            </div>
+            <h3 style="font-size: 1.5rem; color: var(--navy-primary); margin-bottom: 0.75rem;">Mission Statement</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.65;">
+              To cultivate an empowering learning environment that fosters critical thinking, moral excellence, and creative innovation—equipping every student with the wisdom, knowledge, and character required to excel globally and serve humanity.
+            </p>
+          </div>
+
+          <!-- Vision Card -->
+          <div class="card" style="padding: 2rem; border-top: 4px solid var(--accent-green-dark);">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+              <span class="section-subtitle" style="margin-bottom: 0;">Our Aspiration</span>
+              <div style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--navy-primary); color: var(--accent-green); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">👁️</div>
+            </div>
+            <h3 style="font-size: 1.5rem; color: var(--navy-primary); margin-bottom: 0.75rem;">Vision Statement</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.65;">
+              To be a leading citadel of academic brilliance and moral transformation, recognized globally for nurturing visionary leaders who shape a brighter, wiser, and more sustainable future.
+            </p>
+          </div>
+        </div>
+
+        <!-- Admission Submission Callout Section -->
+        <div style="margin-bottom: 2.5rem; text-align: center;">
+          <div class="card" style="padding: 2.5rem 2rem; background: linear-gradient(135deg, var(--navy-primary) 0%, var(--navy-light) 100%); color: #ffffff; border: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.25rem;">
+            <div style="display: inline-block; padding: 0.25rem 0.85rem; background-color: var(--accent-green); color: var(--accent-green-dark); border-radius: var(--radius-full); font-size: 0.825rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;">
+              Join De Wisdom Family
+            </div>
+            <h3 style="font-size: 1.85rem; color: #ffffff; margin: 0; font-weight: 800; max-width: 600px; line-height: 1.25;">
+              Begin Your Child's Journey to Academic Excellence
+            </h3>
+            <p style="color: rgba(255, 255, 255, 0.85); font-size: 1rem; max-width: 580px; margin: 0; line-height: 1.6;">
+              Applications for the upcoming academic session are currently open. Submit your admission application online in a few simple steps.
+            </p>
+            <button class="btn btn-accent" style="padding: 0.85rem 2rem; font-size: 1rem; font-weight: 700; border-radius: var(--radius-full); cursor: pointer; box-shadow: 0 4px 14px rgba(203, 245, 221, 0.35);" onclick="switchPage('admission')">
+              Apply for Admission Now &rarr;
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. LOGIN SECTION (STUDENT & STAFF) -->
+      <section id="page-login-student" class="page-section">
+        <div class="auth-container">
+          <div class="section-title-block">
+            <div class="section-subtitle">Secure Gateway</div>
+            <h2 class="section-title">Student Portal Login</h2>
+            <p class="section-description">Sign in with your Student Identification Number to view academic reports and class records.</p>
+          </div>
+
+          <div class="card">
+            <div class="auth-tabs">
+              <button class="auth-tab-btn active" onclick="switchAuthTab('student')">Student Login</button>
+              <button class="auth-tab-btn" onclick="switchPage('login-staff')">Staff Login</button>
+            </div>
+
+            <form id="student-login-form" onsubmit="loginUser(event, 'student')">
+              <div class="form-group">
+                <label class="form-label" for="student-username">Student ID / Username</label>
+                <input type="text" id="student-username" class="form-input" placeholder="e.g. STU-042" required value="STU-042" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="student-password">Password</label>
+                <div class="password-wrapper">
+                  <input type="password" id="student-password" class="form-input" placeholder="••••••••" required value="password123" />
+                  <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('student-password', this)" aria-label="Toggle password visibility">
+                    <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In to Student Dashboard</button>
+            </form>
+
+            <div class="demo-login-box">
+              <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">Quick Demo Login Switcher:</div>
+              <div class="demo-btn-group">
+                <button type="button" class="btn btn-outline btn-sm" onclick="quickFillAndLogin('student', 'STU-042', 'Active Student')">Demo Active Student</button>
+                <button type="button" class="btn btn-outline btn-sm" onclick="quickFillAndLogin('student-grad', 'STU-011', 'Graduated Student')">Demo Graduated Student</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="page-login-staff" class="page-section">
+        <div class="auth-container">
+          <div class="section-title-block">
+            <div class="section-subtitle">Faculty Access</div>
+            <h2 class="section-title">Staff Portal Login</h2>
+            <p class="section-description">Access curriculum materials, lesson repository, and student gradebook management.</p>
+          </div>
+
+          <div class="card">
+            <div class="auth-tabs">
+              <button class="auth-tab-btn" onclick="switchPage('login-student')">Student Login</button>
+              <button class="auth-tab-btn active" onclick="switchAuthTab('staff')">Staff Login</button>
+            </div>
+
+            <form id="staff-login-form" onsubmit="loginUser(event, 'staff')">
+              <div class="form-group">
+                <label class="form-label" for="staff-username">Staff Username / ID</label>
+                <input type="text" id="staff-username" class="form-input" placeholder="e.g. TCH-008" required value="TCH-008" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="staff-password">Password</label>
+                <div class="password-wrapper">
+                  <input type="password" id="staff-password" class="form-input" placeholder="••••••••" required value="staffpass123" />
+                  <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('staff-password', this)" aria-label="Toggle password visibility">
+                    <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In to Staff Dashboard</button>
+            </form>
+
+            <div class="demo-login-box">
+              <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">Quick Demo Staff Login:</div>
+              <div class="demo-btn-group">
+                <button type="button" class="btn btn-outline btn-sm" onclick="quickFillAndLogin('staff', 'TCH-008', 'Biology Teacher')">Demo Biology Educator</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. STUDENT DASHBOARD -->
+      <section id="page-dashboard-student" class="page-section">
+        <div class="dashboard-header">
+          <div class="dashboard-user-info">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+              <h2 id="student-dash-name">Alexandra Chen</h2>
+              
+              <!-- Status Indicator with Blinking Dot -->
+              <div class="status-badge" id="student-status-badge">
+                <span class="status-dot active" id="student-status-dot"></span>
+                <span id="student-status-text">Active Student</span>
+              </div>
+            </div>
+            <p>Student ID: <span id="student-dash-id">STU-042</span> | Class: <span id="student-dash-class">Senior Secondary 3 (SS3 Alpha)</span></p>
+          </div>
+          <div style="display: flex; gap: 0.5rem; align-items: center;">
+            <button class="btn btn-outline" style="color:#fff; border-color:rgba(255,255,255,0.3);" onclick="logoutUser()">Logout</button>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <!-- De Wisdom AI Academic Assistant Card (Student) -->
+          <div class="ai-chatbot-card">
+            <div class="ai-chatbot-header">
+              <div class="ai-chatbot-title-box">
+                <div class="ai-bot-avatar">🤖</div>
+                <div>
+                  <h3 style="margin:0; font-size: 1.15rem; font-weight: 700;">De Wisdom AI Academic Assistant</h3>
+                  <p style="margin:0; font-size: 0.8rem; opacity: 0.85;">Interactive Step-by-Step Assignment & Learning Guide</p>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.6rem;">
+                <span class="ai-chatbot-badge">● Online 24/7 AI Tutor</span>
+                <button type="button" class="btn btn-outline btn-sm" style="color:#fff; border-color:rgba(255,255,255,0.3); padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="clearAiChat('student')">Clear Chat</button>
+              </div>
+            </div>
+
+            <!-- Quick Suggestions -->
+            <div class="ai-quick-prompts">
+              <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Quick Topics:</span>
+              <button type="button" class="ai-prompt-chip" onclick="sendQuickAiPrompt('student', 'Explain how to solve quadratic equations step-by-step')">📐 Quadratic Equations</button>
+              <button type="button" class="ai-prompt-chip" onclick="sendQuickAiPrompt('student', 'Explain photosynthesis in plants with clear examples')">🌿 Photosynthesis</button>
+              <button type="button" class="ai-prompt-chip" onclick="sendQuickAiPrompt('student', 'How do I calculate kinetic energy? Show formulas')">⚡ Kinetic Energy Formula</button>
+              <button type="button" class="ai-prompt-chip" onclick="sendQuickAiPrompt('student', 'What is Newton second law of motion?')">🍎 Newton Second Law</button>
+              <button type="button" class="ai-prompt-chip" onclick="sendQuickAiPrompt('student', 'Help me structure an essay for English assignment')">📝 English Essay Guide</button>
+            </div>
+
+            <!-- Chat Output -->
+            <div class="ai-chat-body" id="student-ai-chat-body">
+              <div class="chat-msg-row bot">
+                <div class="chat-msg-bubble">
+                  Hello! I am <b>De Wisdom AI Academic Assistant</b>. 👋<br><br>
+                  I am here to guide you step-by-step with your assignments, math problems, science theories, and subjects at De Wisdom Comprehensive Academy. Ask me any question or pick a quick topic above!
+                  <span class="chat-msg-time">Just now</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chat Input -->
+            <form class="ai-chat-footer" onsubmit="handleAiChatSubmit(event, 'student')">
+              <input type="text" id="student-ai-chat-input" class="ai-chat-input" placeholder="Ask De Wisdom AI for assignment help or topic explanations..." required />
+              <button type="submit" class="btn btn-primary" id="student-ai-send-btn" style="border-radius: var(--radius-full); padding: 0.75rem 1.4rem; font-weight: 700;">
+                <span>Send</span> ➔
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. STAFF DASHBOARD -->
+      <section id="page-dashboard-staff" class="page-section">
+        <div class="dashboard-header">
+          <div class="dashboard-user-info">
+            <h2 id="staff-dash-name">Dr. Jonathan Vance</h2>
+            <p>Staff ID: <span id="staff-dash-id">TCH-008</span> | Role: <span id="staff-dash-role">Biology Teacher & Form Master (SS2)</span></p>
+          </div>
+          <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+            <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-accent" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; font-weight: 700;">
+              <span>📁</span> Google Drive Resources
+            </a>
+            <button class="btn btn-outline" style="color:#fff; border-color:rgba(255,255,255,0.3);" onclick="logoutUser()">Logout</button>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <!-- De Wisdom AI Academic Assistant Card (Staff Edition) -->
+          <div class="ai-chatbot-card">
+            <div class="ai-chatbot-header" style="background: linear-gradient(135deg, #1e3a8a 0%, #0066DA 100%);">
+              <div class="ai-chatbot-title-box">
+                <div class="ai-bot-avatar">🎓</div>
+                <div>
+                  <h3 style="margin:0; font-size: 1.15rem; font-weight: 700;">De Wisdom AI Academic Assistant (Staff Edition)</h3>
+                  <p style="margin:0; font-size: 0.8rem; opacity: 0.85;">Lesson Planning, Quiz Generator & Curriculum Copilot</p>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.6rem;">
+                <span class="ai-chatbot-badge">● Staff Teaching Copilot</span>
+                <button type="button" class="btn btn-outline btn-sm" style="color:#fff; border-color:rgba(255,255,255,0.3); padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="clearAiChat('staff')">Clear Chat</button>
+              </div>
+            </div>
+
+            <!-- Quick Suggestions for Staff -->
+            <div class="ai-quick-prompts">
+              <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Teacher Tools:</span>
+              <button type="button" class="ai-prompt-chip" onclick="sendQuickAiPrompt('staff', 'Draft a 45-minute SS2 Biology lesson plan on Osmosis')">📋 45-Min Lesson Plan</button>
+              <button type="button" class="ai-prompt-chip" onclick="sendQuickAiPrompt('staff', 'Generate 5 multiple choice quiz questions with marking key for JSS3 Algebra')">❓ Generate 5 Quiz Questions</button>
+              <button type="button" class="ai-prompt-chip" onclick="sendQuickAiPrompt('staff', 'Suggest an interactive classroom experiment for teaching chemical reactions')">🧪 Interactive Science Activity</button>
+              <button type="button" class="ai-prompt-chip" onclick="sendQuickAiPrompt('staff', 'Help me structure a revision study guide for SS3 exam preparation')">📖 SS3 Revision Guide</button>
+            </div>
+
+            <!-- Chat Output -->
+            <div class="ai-chat-body" id="staff-ai-chat-body">
+              <div class="chat-msg-row bot">
+                <div class="chat-msg-bubble">
+                  Welcome Educator! I am <b>De Wisdom AI Academic Assistant</b>. 🎓<br><br>
+                  I am tailored to assist staff with lesson note drafting, syllabus alignment, exam question generation, and active learning strategies for Senior and Junior Secondary classes. How can I assist your teaching today?
+                  <span class="chat-msg-time">Just now</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chat Input -->
+            <form class="ai-chat-footer" onsubmit="handleAiChatSubmit(event, 'staff')">
+              <input type="text" id="staff-ai-chat-input" class="ai-chat-input" placeholder="Request lesson plans, quiz questions, or teaching guides..." required />
+              <button type="submit" class="btn btn-primary" id="staff-ai-send-btn" style="border-radius: var(--radius-full); padding: 0.75rem 1.4rem; font-weight: 700;">
+                <span>Send</span> ➔
+              </button>
+            </form>
+          </div>
+
+          <!-- Dedicated Google Drive Folder Card -->
+          <div class="card" style="grid-column: 1 / -1; background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-elevated) 100%); padding: 2rem; border-left: 5px solid #4285F4; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
+            <div style="max-width: 650px;">
+              <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem;">
+                <span style="font-size: 1.6rem;">📁</span>
+                <h3 style="margin: 0; font-size: 1.35rem; color: var(--navy-primary);">Dedicated Academic Resources Folder</h3>
+              </div>
+              <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0; line-height: 1.6;">
+                Access De Wisdom Academy's official Google Drive repository to view and download academic materials, syllabus outlines, past examination questions, scheme of work, and teaching aids.
+              </p>
+            </div>
+            <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.65rem; padding: 0.85rem 1.6rem; font-weight: 700; text-decoration: none; border-radius: var(--radius-full); background-color: #1a73e8; color: #ffffff; box-shadow: 0 4px 12px rgba(26, 115, 232, 0.25);">
+              <svg width="20" height="20" viewBox="0 0 87.3 78" fill="none">
+                <path d="M6.6 66.85l3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8H0c0 1.55.4 3.1 1.2 4.5l5.4 9.35z" fill="#0066DA"/>
+                <path d="M43.65 25L29.9 1.2c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44c-.8 1.4-1.2 2.95-1.2 4.5h27.5L43.65 25z" fill="#00AC47"/>
+                <path d="M73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l5.4-9.35c.8-1.4 1.2-2.95 1.2-4.5H55.95l13.75 23.8c1.35 0 2.65-.4 3.85-1.15z" fill="#EA4335"/>
+                <path d="M43.65 25L57.4 1.2C56.05.4 54.55 0 53 0H34.3c-1.55 0-3.1.4-4.4 1.2L43.65 25z" fill="#00832D"/>
+                <path d="M55.95 53h31.35c0-1.55-.4-3.1-1.2-4.5l-25.4-44c-.8-1.4-1.95-2.5-3.3-3.3L43.65 25 55.95 53z" fill="#2684FC"/>
+                <path d="M27.5 53L13.75 76.8c1.35.8 2.85 1.2 4.4 1.2h37.4c1.55 0 3.1-.4 4.4-1.2L46.2 53H27.5z" fill="#FFBA00"/>
+              </svg>
+              <span>Download Academic Resources</span>
+              <span style="font-size: 1.1rem;">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. ADMIN DASHBOARD -->
+      <section id="page-dashboard-admin" class="page-section">
+        <div class="dashboard-header">
+          <div class="dashboard-user-info">
+            <h2>School Administrator Portal</h2>
+            <p>System Management & User Administration Control Center</p>
+          </div>
+          <button class="btn btn-outline" style="color:#fff; border-color:rgba(255,255,255,0.3);" onclick="logoutUser()">Logout</button>
+        </div>
+
+        <!-- Metric Icon Cards: Students, Staff, New Applicants -->
+        <div class="admin-stats-grid">
+          <div class="stat-card" style="border-left-color: #0066DA;">
+            <div class="stat-card-inner">
+              <div>
+                <div class="stat-label">Total Students</div>
+                <div class="stat-number" id="admin-stat-students">3</div>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Enrolled & Active</div>
+              </div>
+              <div class="stat-icon-box stat-icon-students" title="Student Count">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="stat-card" style="border-left-color: #2684FC;">
+            <div class="stat-card-inner">
+              <div>
+                <div class="stat-label">Total Staff</div>
+                <div class="stat-number" id="admin-stat-staff">2</div>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Educators & Faculty</div>
+              </div>
+              <div class="stat-icon-box stat-icon-staff" title="Staff Count">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="stat-card" style="border-left-color: #F59E0B;">
+            <div class="stat-card-inner">
+              <div>
+                <div class="stat-label">New Applicants</div>
+                <div class="stat-number" id="admin-stat-applicants">14</div>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Pending Admissions</div>
+              </div>
+              <div class="stat-icon-box stat-icon-applicants" title="New Applicants">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="12" y1="18" x2="12" y2="12"></line>
+                  <line x1="9" y1="15" x2="15" y2="15"></line>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <!-- Form: Add Student -->
+          <div class="card">
+            <h3 style="margin-bottom: 1rem; color: var(--navy-primary);">Add New Student</h3>
+            <form id="admin-add-student-form" onsubmit="adminAddStudent(event)">
+              <div class="form-group">
+                <label class="form-label" for="new-student-name">Full Name</label>
+                <input type="text" id="new-student-name" class="form-input" required placeholder="e.g. David Okon" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-student-class">Assigned Class</label>
+                <select id="new-student-class" class="form-select" required>
+                  <option value="JSS 1 Alpha">JSS 1 Alpha</option>
+                  <option value="JSS 2 Beta">JSS 2 Beta</option>
+                  <option value="JSS 3 Gold">JSS 3 Gold</option>
+                  <option value="SS 1 Science">SS 1 Science</option>
+                  <option value="SS 2 Arts">SS 2 Arts</option>
+                  <option value="SS 3 Science">SS 3 Science</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-student-password">Login Password</label>
+                <input type="text" id="new-student-password" class="form-input" required placeholder="Default: password123" value="password123" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-student-status">Initial Status</label>
+                <select id="new-student-status" class="form-select" required>
+                  <option value="active">Active (Blue Dot)</option>
+                  <option value="graduated">Graduated (Green Dot)</option>
+                  <option value="inactive">Inactive (Red Dot)</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">+ Register Student</button>
+            </form>
+          </div>
+
+          <!-- Form: Add Staff -->
+          <div class="card">
+            <h3 style="margin-bottom: 1rem; color: var(--navy-primary);">Add New Staff</h3>
+            <form id="admin-add-staff-form" onsubmit="adminAddStaff(event)">
+              <div class="form-group">
+                <label class="form-label" for="new-staff-name">Full Name</label>
+                <input type="text" id="new-staff-name" class="form-input" required placeholder="e.g. Mrs. Sarah Jenkins" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-staff-subject">Primary Subject</label>
+                <input type="text" id="new-staff-subject" class="form-input" required placeholder="e.g. Mathematics & Statistics" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-staff-role">Staff Role</label>
+                <input type="text" id="new-staff-role" class="form-input" required placeholder="e.g. Senior Teacher / HOD Science" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-staff-password">Login Password</label>
+                <input type="text" id="new-staff-password" class="form-input" required placeholder="Default: staffpass123" value="staffpass123" />
+              </div>
+              <button type="submit" class="btn btn-accent" style="width: 100%;">+ Register Staff</button>
+            </form>
+          </div>
+
+          <!-- User Management Directory & Actions Table -->
+          <div class="card" style="grid-column: 1 / -1;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+              <h3>Registered Users & Access Management</h3>
+              <div style="display: flex; gap: 0.5rem;">
+                <button class="btn btn-sm btn-outline active" onclick="filterUserTable('all')" id="filter-btn-all">All Users</button>
+                <button class="btn btn-sm btn-outline" onclick="filterUserTable('student')" id="filter-btn-student">Students Only</button>
+                <button class="btn btn-sm btn-outline" onclick="filterUserTable('staff')" id="filter-btn-staff">Staff Only</button>
+              </div>
+            </div>
+
+            <div class="data-table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Class / Subject</th>
+                    <th>Password</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-users-tbody">
+                  <!-- Populated dynamically by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. ADMISSION PAGE -->
+      <section id="page-admission" class="page-section">
+        <div class="section-title-block">
+          <div class="section-subtitle">Enrollment 2026/2027</div>
+          <h2 class="section-title">Online Student Admission Application</h2>
+          <p class="section-description">Fill out the official prospective student enrollment form below. Applications are reviewed within 48 business hours.</p>
+        </div>
+
+        <div class="card" style="max-width: 800px; margin: 0 auto;">
+          <form id="admission-form" onsubmit="submitForm(event, 'admission')">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+              
+              <div class="form-group">
+                <label class="form-label" for="adm-name">Student Full Name *</label>
+                <input type="text" id="adm-name" class="form-input" required placeholder="First Name & Last Name" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="adm-age">Age *</label>
+                <input type="number" id="adm-age" class="form-input" required min="5" max="20" placeholder="e.g. 14" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="adm-gender">Gender *</label>
+                <select id="adm-gender" class="form-select" required>
+                  <option value="">Select Gender...</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="adm-class">Intended Class / Grade *</label>
+                <select id="adm-class" class="form-select" required>
+                  <option value="">Select Grade Level...</option>
+                  <option value="JSS 1">Junior Secondary 1 (JSS 1)</option>
+                  <option value="JSS 2">Junior Secondary 2 (JSS 2)</option>
+                  <option value="JSS 3">Junior Secondary 3 (JSS 3)</option>
+                  <option value="SS 1">Senior Secondary 1 (SS 1)</option>
+                  <option value="SS 2">Senior Secondary 2 (SS 2)</option>
+                  <option value="SS 3">Senior Secondary 3 (SS 3)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="adm-whatsapp">Parent WhatsApp Number *</label>
+                <input type="tel" id="adm-whatsapp" class="form-input" required placeholder="+234 800 000 0000" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="adm-dob">Date of Birth *</label>
+                <input type="date" id="adm-dob" class="form-input" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="adm-guardian">Guardian / Parent Name *</label>
+                <input type="text" id="adm-guardian" class="form-input" required placeholder="Full Name of Parent or Guardian" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="adm-prev-school">Previous School Attended *</label>
+                <input type="text" id="adm-prev-school" class="form-input" required placeholder="Name of previous primary or high school" />
+              </div>
+
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="adm-medical">Medical Conditions / Allergies (If Any)</label>
+              <textarea id="adm-medical" class="form-textarea" rows="3" placeholder="Please list any allergies, dietary restrictions, or medical history teachers should know..."></textarea>
+            </div>
+
+            <div style="text-align: right; margin-top: 1.5rem;">
+              <button type="submit" class="btn btn-primary" style="padding: 0.85rem 2rem;">
+                <span>🚀</span> Submit Official Application
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- 7. ABOUT PAGE -->
+      <section id="page-about" class="page-section">
+        <div class="section-title-block">
+          <div class="section-subtitle">Heritage & Philosophy</div>
+          <h2 class="section-title">About De Wisdom Comprehensive Academy</h2>
+          <p class="section-description">Founded in 1994, De Wisdom Comprehensive Academy stands as a premier educational sanctuary devoted to intellectual rigor, ethical leadership, and character formation.</p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Mission -->
+          <div class="card">
+            <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🎯</div>
+            <h3 style="margin-bottom: 0.5rem;">Our Mission</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">
+              To provide a transformative, world-class educational experience that cultivates critical intellect, moral integrity, and practical skills in scholars, equipping them to excel in a dynamic global society.
+            </p>
+          </div>
+
+          <!-- Vision -->
+          <div class="card">
+            <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">👁️</div>
+            <h3 style="margin-bottom: 0.5rem;">Our Vision</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">
+              To be globally recognized as a gold-standard citadel of holistic learning, leading in technological integration, scientific inquiry, and humanitarian service.
+            </p>
+          </div>
+
+          <!-- Objectives -->
+          <div class="card">
+            <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🌟</div>
+            <h3 style="margin-bottom: 0.5rem;">Core Objectives</h3>
+            <ul style="color: var(--text-muted); font-size: 0.9rem; padding-left: 1.25rem;">
+              <li>Achieve 100% academic mastery in STEM and Humanities.</li>
+              <li>Instill timeless ethical values, resilience, and compassion.</li>
+              <li>Foster athletic excellence and creative artistic expression.</li>
+              <li>Integrate technology seamlessly into everyday inquiry.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- School Leadership -->
+        <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--navy-primary);">Institutional Leadership</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; max-width: 800px; margin: 0 auto;">
+          <div class="leadership-card">
+            <div class="avatar-circle">EV</div>
+            <div>
+              <h4 style="font-size: 1.15rem;">Dr. Elizabeth Vance</h4>
+              <div style="color: var(--accent-green-dark); font-weight: 600; font-size: 0.85rem; margin-bottom: 0.25rem;">School Director</div>
+              <p style="color: var(--text-muted); font-size: 0.85rem;">Ph.D. in Educational Administration from Oxford University. Over 25 years in academic governance.</p>
+            </div>
+          </div>
+
+          <div class="leadership-card">
+            <div class="avatar-circle">MS</div>
+            <div>
+              <h4 style="font-size: 1.15rem;">Prof. Marcus Sterling</h4>
+              <div style="color: var(--accent-green-dark); font-weight: 600; font-size: 0.85rem; margin-bottom: 0.25rem;">School Principal</div>
+              <p style="color: var(--text-muted); font-size: 0.85rem;">M.Ed. in STEM Pedagogy. Dedicated advocate for innovative research and student leadership development.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. CONTACT PAGE -->
+      <section id="page-contact" class="page-section">
+        <div class="section-title-block">
+          <div class="section-subtitle">Get In Touch</div>
+          <h2 class="section-title">Contact De Wisdom Comprehensive Academy</h2>
+          <p class="section-description">Have questions regarding admissions, academics, or campus tours? Reach out to our administrative team.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+          <!-- Contact Details Card -->
+          <div class="card">
+            <h3 style="margin-bottom: 1.25rem; color: var(--navy-primary);">Campus Location & Info</h3>
+            
+            <div style="display: flex; gap: 1rem; margin-bottom: 1.25rem;">
+              <div style="font-size: 1.5rem;">📍</div>
+              <div>
+                <strong>Physical Address:</strong>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">42 Citadel Boulevard, Academic District, Victoria Island, Lagos, Nigeria.</p>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; margin-bottom: 1.25rem;">
+              <div style="font-size: 1.5rem;">📞</div>
+              <div>
+                <strong>Phone Contacts:</strong>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">+234 (0) 803 123 4567<br />+234 (0) 809 987 6543</p>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem;">
+              <div style="font-size: 1.5rem;">✉️</div>
+              <div>
+                <strong>Official Emails:</strong>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">admissions@dewisdom.edu.ng<br />info@dewisdom.edu.ng</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="card">
+            <h3 style="margin-bottom: 1rem;">Send Us a Message</h3>
+            <form id="contact-form" onsubmit="submitForm(event, 'contact')">
+              <div class="form-group">
+                <label class="form-label" for="contact-name">Your Full Name</label>
+                <input type="text" id="contact-name" class="form-input" required placeholder="e.g. John Doe" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contact-email">Email Address</label>
+                <input type="email" id="contact-email" class="form-input" required placeholder="john@example.com" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contact-message">Message</label>
+                <textarea id="contact-message" class="form-textarea" rows="4" required placeholder="How can we assist you today?"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message &rarr;</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- MODAL DIALOGS -->
+  <!-- 1. Download Result Modal -->
+  <div class="modal-backdrop" id="result-modal">
+    <div class="modal-box">
+      <button class="modal-close-btn" onclick="closeModal('result-modal')">&times;</button>
+      
+      <div class="result-sheet" id="printable-result-sheet">
+        <div style="text-align: center; border-bottom: 2px solid var(--navy-primary); padding-bottom: 1rem; margin-bottom: 1rem;">
+          <h2 style="color: var(--navy-primary); margin-bottom: 0.25rem;">DE WISDOM COMPREHENSIVE ACADEMY</h2>
+          <div style="font-weight: 700; font-size: 0.9rem; letter-spacing: 0.05em; color: var(--navy-light);">OFFICIAL TERMINAL ACADEMIC REPORT CARD</div>
+          <div style="font-size: 0.8rem; color: #64748b; margin-top: 0.25rem;">Session: 2025/2026 Academic Year | Term 3</div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.85rem; margin-bottom: 1rem; background: #f8fafc; padding: 0.75rem; border-radius: 6px;">
+          <div><strong>Student Name:</strong> <span id="res-student-name">Alexandra Chen</span></div>
+          <div><strong>Student ID:</strong> <span id="res-student-id">STU-2026-042</span></div>
+          <div><strong>Class:</strong> <span id="res-student-class">SS3 Alpha</span></div>
+          <div><strong>Overall GPA:</strong> <strong>3.92 / 4.00 (94.5%)</strong></div>
+        </div>
+
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-bottom: 1.25rem;">
+          <thead>
+            <tr style="background-color: var(--navy-primary); color: #fff;">
+              <th style="padding: 0.5rem; text-align: left;">Subject</th>
+              <th style="padding: 0.5rem; text-align: center;">Score</th>
+              <th style="padding: 0.5rem; text-align: center;">Grade</th>
+              <th style="padding: 0.5rem; text-align: left;">Teacher Remark</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #cbd5e1;">
+              <td style="padding: 0.5rem;">Biology</td>
+              <td style="padding: 0.5rem; text-align: center;">96%</td>
+              <td style="padding: 0.5rem; text-align: center;"><strong>A+</strong></td>
+              <td style="padding: 0.5rem;">Outstanding grasp of cellular biology.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #cbd5e1;">
+              <td style="padding: 0.5rem;">Chemistry</td>
+              <td style="padding: 0.5rem; text-align: center;">92%</td>
+              <td style="padding: 0.5rem; text-align: center;"><strong>A</strong></td>
+              <td style="padding: 0.5rem;">Excellent organic reactions synthesis.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #cbd5e1;">
+              <td style="padding: 0.5rem;">Physics</td>
+              <td style="padding: 0.5rem; text-align: center;">95%</td>
+              <td style="padding: 0.5rem; text-align: center;"><strong>A+</strong></td>
+              <td style="padding: 0.5rem;">Superb mathematical modeling skills.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #cbd5e1;">
+              <td style="padding: 0.5rem;">Mathematics</td>
+              <td style="padding: 0.5rem; text-align: center;">90%</td>
+              <td style="padding: 0.5rem; text-align: center;"><strong>A</strong></td>
+              <td style="padding: 0.5rem;">Strong calculus problem solving.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="font-size: 0.85rem; font-style: italic; color: #334155; margin-bottom: 1rem;">
+          <strong>Principal's Remark:</strong> "An exemplary academic performance. Alexandra demonstrates leadership and high technical promise."
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; font-size: 0.8rem; border-top: 1px dashed #94a3b8; padding-top: 0.75rem;">
+          <div>
+            <strong>Date Issued:</strong> July 28, 2026<br />
+            <strong>Verification Code:</strong> VER-8842-WISDOM
+          </div>
+          <div style="text-align: right;">
+            <div style="font-family: 'Outfit', cursive; font-size: 1.1rem; color: var(--navy-primary);">Prof. Marcus Sterling</div>
+            <div>Official Stamp & Signature</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.25rem; display: flex; justify-content: flex-end; gap: 0.75rem;">
+        <button class="btn btn-outline" onclick="closeModal('result-modal')">Close</button>
+        <button class="btn btn-primary" onclick="printOrSaveResult()">🖨️ Print / Download PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Edit User Modal (Admin) -->
+  <div class="modal-backdrop" id="edit-user-modal">
+    <div class="modal-box">
+      <button class="modal-close-btn" onclick="closeModal('edit-user-modal')">&times;</button>
+      <h3 style="margin-bottom: 1rem;" id="edit-user-modal-title">Edit User Details</h3>
+      <form id="edit-user-form" onsubmit="saveEditedUser(event)">
+        <input type="hidden" id="edit-user-id" />
+        <div class="form-group">
+          <label class="form-label" for="edit-user-name">Full Name</label>
+          <input type="text" id="edit-user-name" class="form-input" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="edit-user-detail">Class or Primary Subject</label>
+          <input type="text" id="edit-user-detail" class="form-input" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="edit-user-password">Password (Set or Edit)</label>
+          <div style="position: relative;">
+            <input type="text" id="edit-user-password" class="form-input" placeholder="Enter new password for user" required />
+          </div>
+          <small style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem; display: block;">You can update or reset the password for this user here.</small>
+        </div>
+        <div class="form-group" id="edit-status-group">
+          <label class="form-label" for="edit-user-status">Status</label>
+          <select id="edit-user-status" class="form-select">
+            <option value="active">Active (Blue Dot)</option>
+            <option value="graduated">Graduated (Green Dot)</option>
+            <option value="inactive">Inactive (Red Dot)</option>
+          </select>
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 1.5rem;">
+          <button type="button" class="btn btn-outline" onclick="closeModal('edit-user-modal')">Cancel</button>
+          <button type="submit" class="btn btn-accent">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3. Upload Note Modal (Staff) -->
+  <div class="modal-backdrop" id="upload-note-modal">
+    <div class="modal-box">
+      <button class="modal-close-btn" onclick="closeModal('upload-note-modal')">&times;</button>
+      <h3 style="margin-bottom: 1rem;">Upload New Lesson Note</h3>
+      <form id="upload-note-form" onsubmit="submitUploadedNote(event)">
+        <div class="form-group">
+          <label class="form-label" for="note-title">Topic Title *</label>
+          <input type="text" id="note-title" class="form-input" required placeholder="e.g. Enzyme Catalysts & Kinetic Energy" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="note-subject">Subject *</label>
+          <input type="text" id="note-subject" class="form-input" required placeholder="e.g. Senior Biology" value="Biology" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="note-grade">Target Grade *</label>
+          <select id="note-grade" class="form-select" required>
+            <option value="SS3">Senior Secondary 3 (SS3)</option>
+            <option value="SS2">Senior Secondary 2 (SS2)</option>
+            <option value="SS1">Senior Secondary 1 (SS1)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="note-content">Summary / Outline</label>
+          <textarea id="note-content" class="form-textarea" rows="3" placeholder="Key learning objectives and reference chapters..."></textarea>
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 1.5rem;">
+          <button type="button" class="btn btn-outline" onclick="closeModal('upload-note-modal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Publish Note</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo" style="margin-bottom: 0.75rem;">
+            <div class="brand-icon">D</div>
+            <span>De Wisdom</span>
+          </div>
+          <p style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">
+            De Wisdom Comprehensive Academy is a premier co-educational institution committed to academic mastery, ethical stewardship, and total child development.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Quick Portals</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" onclick="switchPage('login-student')">Student Portal</a></li>
+            <li><a href="javascript:void(0)" onclick="switchPage('login-staff')">Faculty Portal</a></li>
+            <li><a href="javascript:void(0)" onclick="switchPage('dashboard-admin')">Admin Gateway</a></li>
+            <li><a href="javascript:void(0)" onclick="switchPage('admission')">Admission Application</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Contact & Help</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" onclick="switchPage('about')">About De Wisdom Academy</a></li>
+            <li><a href="javascript:void(0)" onclick="switchPage('contact')">Get Directions</a></li>
+            <li><a>Privacy & Terms</a></li>
+            <li><a>Support Helpline</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 De Wisdom Comprehensive Academy. All Rights Reserved. Designed with clean modular standards.
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING SOCIAL MEDIA BAR -->
+  <aside class="floating-social-bar" aria-label="Social Media Links">
+    <!-- WhatsApp -->
+    <a href="https://wa.me/2348000000000" target="_blank" rel="noopener noreferrer" class="social-link-btn whatsapp" aria-label="Contact us on WhatsApp">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.964 9.964 0 001.333 4.993L2 22l5.233-1.237a9.982 9.982 0 004.779 1.221h.005c5.505 0 9.988-4.478 9.989-9.984 0-2.669-1.038-5.176-2.925-7.062A9.925 9.925 0 0012.012 2zm5.82 14.161c-.244.686-1.42 1.309-1.96 1.365-.54.057-1.233.256-3.864-.811-3.238-1.313-5.289-4.606-5.45-4.821-.161-.215-1.31-1.743-1.31-3.325 0-1.582.827-2.36 1.121-2.684.294-.323.641-.404.855-.404.214 0 .428.003.615.011.198.008.464-.075.727.556.27.647.922 2.25 1.002 2.414.08.164.134.356.027.571-.107.215-.161.349-.321.536-.161.188-.338.394-.145.724.193.33 0.856 1.411 1.835 2.284 1.258 1.122 2.32 1.47 2.651 1.631.33.161.523.134.717-.089.193-.223.829-.966 1.052-1.298.223-.332.446-.277.75-.164.304.113 1.932.911 2.262 1.076.33.165.55.247.632.385.083.138.083.801-.161 1.487z"/>
+      </svg>
+      <span class="social-tooltip">WhatsApp Us</span>
+    </a>
+
+    <!-- Facebook -->
+    <a href="https://facebook.com/dewisdomacademy" target="_blank" rel="noopener noreferrer" class="social-link-btn facebook" aria-label="Follow us on Facebook">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+      </svg>
+      <span class="social-tooltip">Facebook</span>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://linkedin.com/company/dewisdomacademy" target="_blank" rel="noopener noreferrer" class="social-link-btn linkedin" aria-label="Connect with us on LinkedIn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+      </svg>
+      <span class="social-tooltip">LinkedIn</span>
+    </a>
+  </aside>
+
+
+  <!-- ==========================================
+       JAVASCRIPT LOGIC - LOGICAL SECTION 3
+       ========================================== -->
+  <!-- Backend Engine Integration (backend.js) -->
+  <script src="js/backend.js"></script>
+  <script>
+    /* ===================================================
+       APPLICATION STATE & MOCK DATABASE STORAGE
+       =================================================== */
+    let currentUser = null; // Currently logged in user object
+    let currentSlideIndex = 0;
+    let sliderInterval = null;
+    let currentUserFilter = 'all';
+    let newApplicantsCount = 14;
+
+    function updateAdminStats() {
+      const studentsCount = mockUsersDatabase.filter(u => u.type === 'student').length;
+      const staffCount = mockUsersDatabase.filter(u => u.type === 'staff').length;
+
+      const studentEl = document.getElementById('admin-stat-students');
+      const staffEl = document.getElementById('admin-stat-staff');
+      const applicantsEl = document.getElementById('admin-stat-applicants');
+
+      if (studentEl) studentEl.textContent = studentsCount;
+      if (staffEl) staffEl.textContent = staffCount;
+      if (applicantsEl) applicantsEl.textContent = newApplicantsCount;
+    }
+
+    // Mock Database of Users
+    let mockUsersDatabase = [
+      { id: 'STU-042', name: 'Alexandra Chen', type: 'student', password: 'password123', detail: 'SS3 Alpha (Science Track)', status: 'active' },
+      { id: 'STU-011', name: 'Marcus Brody', type: 'student', password: 'password123', detail: 'Class of 2023 Alumni', status: 'graduated' },
+      { id: 'STU-099', name: 'Ethan Hunt', type: 'student', password: 'password123', detail: 'JSS1 Beta', status: 'inactive' },
+      { id: 'TCH-008', name: 'Dr. Jonathan Vance', type: 'staff', password: 'staffpass123', detail: 'Senior Biology & Form Master', status: 'active' },
+      { id: 'TCH-002', name: 'Mrs. Sarah Jenkins', type: 'staff', password: 'staffpass123', detail: 'Mathematics Dept. Lead', status: 'active' }
+    ];
+
+    // Mock Lesson Notes Repository
+    let mockNotesDatabase = [
+      { id: 1, title: 'Cell Structure & Organelle Functions', subject: 'Biology', grade: 'SS1', date: '2026-07-20' },
+      { id: 2, title: 'Photosynthesis & Dark Reaction Kinetics', subject: 'Biology', grade: 'SS2', date: '2026-07-22' },
+      { id: 3, title: 'Mendelian Genetics & Inheritance Patterns', subject: 'Biology', grade: 'SS3', date: '2026-07-25' },
+      { id: 4, title: 'Organic Chemistry: Hydrocarbons & Alkanes', subject: 'Chemistry', grade: 'SS2', date: '2026-07-18' },
+      { id: 5, title: 'Newtonian Laws of Motion & Momentum', subject: 'Physics', grade: 'SS1', date: '2026-07-15' },
+      { id: 6, title: 'Differential Calculus & Polynomial Derivatives', subject: 'Mathematics', grade: 'SS3', date: '2026-07-26' }
+    ];
+
+    /* ===================================================
+       1. NAVIGATION & SPA PAGE SWITCHER
+       =================================================== */
+    
+    /**
+     * Dynamically switches active view section without page reloads
+     * @param {string} pageId - Target section ID (e.g., 'home', 'login-student', 'dashboard-student')
+     */
+    function switchPage(pageId) {
+      // Hide all page sections
+      const sections = document.querySelectorAll('.page-section');
+      sections.forEach(sec => sec.classList.remove('active'));
+
+      // Show target page
+      const targetSection = document.getElementById('page-' + pageId);
+      if (targetSection) {
+        targetSection.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Update Header Navigation Active link state
+      const navButtons = document.querySelectorAll('.nav-link');
+      navButtons.forEach(btn => btn.classList.remove('active'));
+      
+      if (pageId === 'home') document.getElementById('nav-btn-home')?.classList.add('active');
+      if (pageId.includes('staff')) document.getElementById('nav-btn-staff')?.classList.add('active');
+      if (pageId.includes('student')) document.getElementById('nav-btn-student')?.classList.add('active');
+      if (pageId === 'about') document.getElementById('nav-btn-about')?.classList.add('active');
+
+      // If switching to admin dashboard or staff dashboard, load respective views
+      if (pageId === 'dashboard-admin') renderAdminUsersTable();
+      if (pageId === 'dashboard-staff') searchNotes();
+    }
+
+    /**
+     * Toggles password input visibility between 'password' and 'text'
+     */
+    function togglePasswordVisibility(inputId, btn) {
+      const input = document.getElementById(inputId);
+      if (!input) return;
+
+      if (input.type === 'password') {
+        input.type = 'text';
+        btn.innerHTML = `
+          <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+            <line x1="1" y1="1" x2="23" y2="23"></line>
+          </svg>
+        `;
+        btn.setAttribute('aria-label', 'Hide password');
+      } else {
+        input.type = 'password';
+        btn.innerHTML = `
+          <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+        `;
+        btn.setAttribute('aria-label', 'Show password');
+      }
+    }
+
+    /**
+     * Toggles the dropdown menu in header
+     */
+    function toggleDropdownMenu() {
+      const dropdown = document.getElementById('nav-dropdown');
+      dropdown.classList.toggle('show');
+    }
+
+    function closeDropdownMenu() {
+      document.getElementById('nav-dropdown').classList.remove('show');
+    }
+
+    // Close dropdown on outside click
+    document.addEventListener('click', function(e) {
+      const wrapper = document.querySelector('.dropdown-menu-wrapper');
+      if (wrapper && !wrapper.contains(e.target)) {
+        closeDropdownMenu();
+      }
+    });
+
+    /**
+     * Mobile Menu Drawer Toggle
+     */
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobile-drawer');
+      const overlay = document.getElementById('mobile-overlay');
+      const isOpen = drawer.classList.contains('open');
+
+      if (isOpen) {
+        drawer.classList.remove('open');
+        overlay.style.display = 'none';
+      } else {
+        drawer.classList.add('open');
+        overlay.style.display = 'block';
+      }
+    }
+
+    /**
+     * Dark Mode Toggle
+     */
+    function toggleDarkMode() {
+      const isDark = document.body.classList.toggle('dark-mode');
+      const themeIcon = document.getElementById('theme-icon');
+      const themeLabel = document.getElementById('theme-label');
+
+      if (isDark) {
+        themeIcon.textContent = '☀️';
+        themeLabel.textContent = 'Light';
+        showToast('Dark Mode Enabled');
+      } else {
+        themeIcon.textContent = '🌙';
+        themeLabel.textContent = 'Dark';
+        showToast('Light Mode Enabled');
+      }
+    }
+
+    /* ===================================================
+       2. MINIMAL IMAGE SLIDER LOGIC
+       =================================================== */
+
+    function showSlide(index) {
+      const slides = document.querySelectorAll('.slide');
+      const dots = document.querySelectorAll('.dot');
+      if (!slides.length) return;
+
+      if (index >= slides.length) currentSlideIndex = 0;
+      else if (index < 0) currentSlideIndex = slides.length - 1;
+      else currentSlideIndex = index;
+
+      slides.forEach((slide, idx) => {
+        slide.classList.toggle('active', idx === currentSlideIndex);
+      });
+
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentSlideIndex);
+      });
+    }
+
+    function nextSlide() {
+      showSlide(currentSlideIndex + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentSlideIndex - 1);
+    }
+
+    function goToSlide(index) {
+      showSlide(index);
+    }
+
+    function startSlider() {
+      if (!sliderInterval) {
+        sliderInterval = setInterval(nextSlide, 5000);
+      }
+    }
+
+    function pauseSlider() {
+      clearInterval(sliderInterval);
+      sliderInterval = null;
+    }
+
+    // Initialize Slider on Load
+    startSlider();
+
+
+    /* ===================================================
+       3. MODULAR LOGIN & AUTHENTICATION SYSTEM
+       =================================================== */
+
+    /**
+     * Switches tab on Login Page
+     */
+    function switchAuthTab(role) {
+      if (role === 'student') switchPage('login-student');
+      else if (role === 'staff') switchPage('login-staff');
+    }
+
+    /**
+     * Quick Demo Helper
+     */
+    function quickFillAndLogin(roleType, username, label) {
+      showToast(`Logging in as ${label}...`);
+      
+      if (roleType === 'student') {
+        document.getElementById('student-username').value = username;
+        document.getElementById('student-password').value = 'password123';
+        loginUser(new Event('submit'), 'student', 'active');
+      } else if (roleType === 'student-grad') {
+        document.getElementById('student-username').value = username;
+        document.getElementById('student-password').value = 'password123';
+        loginUser(new Event('submit'), 'student', 'graduated');
+      } else if (roleType === 'staff') {
+        document.getElementById('staff-username').value = username;
+        document.getElementById('staff-password').value = 'staffpass123';
+        loginUser(new Event('submit'), 'staff');
+      }
+    }
+
+    /**
+     * Primary Login Handler connecting to backend.js engine
+     * @param {Event} event 
+     * @param {string} role - 'student' | 'staff'
+     * @param {string} overrideStatus - optional status override for demo
+     */
+    async function loginUser(event, role, overrideStatus = null) {
+      if (event && event.preventDefault) event.preventDefault();
+
+      let username = '';
+      let password = '';
+
+      if (role === 'student') {
+        username = (document.getElementById('student-username').value || '').trim();
+        password = (document.getElementById('student-password').value || '').trim();
+      } else {
+        username = (document.getElementById('staff-username').value || '').trim();
+        password = (document.getElementById('staff-password').value || '').trim();
+      }
+
+      if (!username || !password) {
+        showToast("Please enter both username and password.");
+        return;
+      }
+
+      try {
+        // Authenticate via BackendAPI engine in backend.js
+        const res = await BackendAPI.login(username, password);
+
+        if (res && res.status === 'success') {
+          currentUser = {
+            username: username,
+            role: res.role || role,
+            name: res.name || username,
+            token: res.token,
+            status: overrideStatus || res.studentStatus || (username.includes('011') ? 'graduated' : 'active')
+          };
+
+          loadDashboard(res.role || role, currentUser);
+          showToast(`Welcome back, ${res.name || username}!`);
+        } else {
+          showToast(res.message || "Authentication failed. Please check credentials.");
+        }
+      } catch (error) {
+        console.error("Login Error:", error);
+        showToast("Authentication error. Please try again.");
+      }
+    }
+
+    /**
+     * Dynamically loads user dashboard view based on role
+     * @param {string} role 
+     * @param {Object} userData 
+     */
+    function loadDashboard(role, userData) {
+      const userRole = (role || '').toLowerCase();
+      if (userRole === 'student') {
+        // Update Student Dashboard details
+        document.getElementById('student-dash-id').textContent = userData.username || 'STU-042';
+        document.getElementById('student-dash-name').textContent = userData.name || 'Alexandra Chen';
+        
+        if (userData.status === 'graduated') {
+          document.getElementById('student-dash-class').textContent = userData.detail || 'Class of 2023 Alumni';
+          const classDisplay = document.getElementById('student-class-display');
+          if (classDisplay) classDisplay.textContent = 'Graduated Scholar';
+          updateStudentStatus('graduated');
+        } else {
+          document.getElementById('student-dash-class').textContent = userData.detail || 'Senior Secondary 3 (SS3 Alpha)';
+          const classDisplay = document.getElementById('student-class-display');
+          if (classDisplay) classDisplay.textContent = userData.detail || 'SS3 Alpha (Science Track)';
+          updateStudentStatus('active');
+        }
+
+        switchPage('dashboard-student');
+
+      } else if (userRole === 'staff' || userRole === 'teacher' || userRole === 'faculty') {
+        document.getElementById('staff-dash-name').textContent = userData.name || 'Dr. Jonathan Vance';
+        document.getElementById('staff-dash-id').textContent = userData.username || 'TCH-008';
+        switchPage('dashboard-staff');
+        searchNotes();
+      } else if (userRole === 'admin') {
+        switchPage('dashboard-admin');
+        if (typeof fetchAdminSystemData === 'function') fetchAdminSystemData();
+      }
+    }
+
+    /**
+     * Updates Student Status indicator (Blue blinking = Active, Green = Graduated, Red = Inactive)
+     * @param {string} status - 'active' | 'graduated' | 'inactive'
+     */
+    function updateStudentStatus(status) {
+      const dot = document.getElementById('student-status-dot');
+      const text = document.getElementById('student-status-text');
+      if (!dot || !text) return;
+
+      dot.className = 'status-dot'; // Reset classes
+
+      if (status === 'active') {
+        dot.classList.add('active');
+        text.textContent = 'Active Student';
+        showToast('Status Indicator: Blue Blinking Dot (Active)');
+      } else if (status === 'graduated') {
+        dot.classList.add('graduated');
+        text.textContent = 'Graduated Scholar';
+        showToast('Status Indicator: Green Blinking Dot (Graduated)');
+      } else if (status === 'inactive') {
+        dot.classList.add('inactive');
+        text.textContent = 'Inactive / Deferred';
+        showToast('Status Indicator: Red Blinking Dot (Inactive)');
+      }
+    }
+
+    function logoutUser() {
+      currentUser = null;
+      showToast('You have logged out.');
+      switchPage('home');
+    }
+
+
+    /* ===================================================
+       4. STAFF LESSON NOTES SEARCH SYSTEM
+       =================================================== */
+
+    /**
+     * Search function for lesson notes (subject + topic)
+     */
+    function searchNotes() {
+      const queryInput = document.getElementById('notes-search-input');
+      const query = queryInput ? queryInput.value.toLowerCase().trim() : '';
+      const tbody = document.getElementById('notes-results-tbody');
+      if (!tbody) return;
+
+      const filtered = mockNotesDatabase.filter(note => {
+        return note.title.toLowerCase().includes(query) ||
+               note.subject.toLowerCase().includes(query) ||
+               note.grade.toLowerCase().includes(query);
+      });
+
+      tbody.innerHTML = '';
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: var(--text-muted); padding: 2rem;">No lesson notes found matching "${query}".</td></tr>`;
+        return;
+      }
+
+      filtered.forEach(note => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${note.title}</strong></td>
+          <td><span class="status-badge">${note.subject}</span></td>
+          <td>${note.grade}</td>
+          <td>${note.date}</td>
+          <td>
+            <button class="btn btn-sm btn-outline" onclick="viewNoteDetails('${note.title}')">👁️ View Outline</button>
+            <button class="btn btn-sm btn-primary" onclick="showToast('Downloading PDF: ${note.title}')">📥 PDF</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function viewNoteDetails(title) {
+      showToast(`Opening lesson outline: "${title}"`);
+    }
+
+    function openUploadNoteModal() {
+      document.getElementById('upload-note-modal').classList.add('active');
+    }
+
+    function submitUploadedNote(event) {
+      event.preventDefault();
+      const title = document.getElementById('note-title').value;
+      const subject = document.getElementById('note-subject').value;
+      const grade = document.getElementById('note-grade').value;
+
+      mockNotesDatabase.unshift({
+        id: Date.now(),
+        title: title,
+        subject: subject,
+        grade: grade,
+        date: new Date().toISOString().split('T')[0]
+      });
+
+      closeModal('upload-note-modal');
+      showToast(`Published note: "${title}" successfully!`);
+      searchNotes();
+    }
+
+
+    /* ===================================================
+       5. ADMIN USER MANAGEMENT (ADD, EDIT, DELETE)
+       =================================================== */
+
+    function renderAdminUsersTable() {
+      updateAdminStats();
+      const tbody = document.getElementById('admin-users-tbody');
+      if (!tbody) return;
+
+      const filtered = mockUsersDatabase.filter(user => {
+        if (currentUserFilter === 'all') return true;
+        return user.type === currentUserFilter;
+      });
+
+      tbody.innerHTML = '';
+
+      filtered.forEach(user => {
+        const tr = document.createElement('tr');
+        
+        let statusBadge = '';
+        if (user.status === 'active') {
+          statusBadge = `<span class="status-badge"><span class="status-dot active"></span> Active</span>`;
+        } else if (user.status === 'graduated') {
+          statusBadge = `<span class="status-badge"><span class="status-dot graduated"></span> Graduated</span>`;
+        } else {
+          statusBadge = `<span class="status-badge"><span class="status-dot inactive"></span> Inactive</span>`;
+        }
+
+        tr.innerHTML = `
+          <td><code>${user.id}</code></td>
+          <td><strong>${user.name}</strong></td>
+          <td><span style="text-transform: capitalize;">${user.type}</span></td>
+          <td>${user.detail}</td>
+          <td><code style="background: var(--bg-card); padding: 2px 6px; border-radius: 4px; font-size: 0.85rem; border: 1px solid var(--border-color);">${escapeHtml(user.password || 'password123')}</code></td>
+          <td>${statusBadge}</td>
+          <td>
+            <button class="btn btn-sm btn-outline" onclick="openEditUserModal('${user.id}')">✏️ Edit</button>
+            <button class="btn btn-sm btn-danger" onclick="deleteUser('${user.id}')">🗑️ Delete</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function filterUserTable(filterType) {
+      currentUserFilter = filterType;
+      
+      document.getElementById('filter-btn-all')?.classList.toggle('active', filterType === 'all');
+      document.getElementById('filter-btn-student')?.classList.toggle('active', filterType === 'student');
+      document.getElementById('filter-btn-staff')?.classList.toggle('active', filterType === 'staff');
+
+      renderAdminUsersTable();
+    }
+
+    async function adminAddStudent(event) {
+      event.preventDefault();
+      const name = document.getElementById('new-student-name').value;
+      const classVal = document.getElementById('new-student-class').value;
+      const status = document.getElementById('new-student-status').value;
+      const password = document.getElementById('new-student-password').value || 'password123';
+
+      const newId = 'STU-' + Math.floor(100 + Math.random() * 900);
+
+      const token = (currentUser && currentUser.token) || "session-token";
+      await BackendAPI.manageUser(token, "add", "student", {
+        username: newId,
+        password: password,
+        name: name,
+        detail: classVal,
+        status: status
+      });
+
+      mockUsersDatabase.push({
+        id: newId,
+        name: name,
+        type: 'student',
+        password: password,
+        detail: classVal,
+        status: status
+      });
+
+      document.getElementById('admin-add-student-form').reset();
+      showToast(`Added Student: ${name} (${newId})`);
+      renderAdminUsersTable();
+    }
+
+    async function adminAddStaff(event) {
+      event.preventDefault();
+      const name = document.getElementById('new-staff-name').value;
+      const subject = document.getElementById('new-staff-subject').value;
+      const role = document.getElementById('new-staff-role').value;
+      const password = document.getElementById('new-staff-password').value || 'staffpass123';
+
+      const newId = 'TCH-' + Math.floor(100 + Math.random() * 900);
+
+      const token = (currentUser && currentUser.token) || "session-token";
+      await BackendAPI.manageUser(token, "add", "staff", {
+        username: newId,
+        password: password,
+        name: name,
+        detail: `${subject} (${role})`,
+        status: 'active'
+      });
+
+      mockUsersDatabase.push({
+        id: newId,
+        name: name,
+        type: 'staff',
+        password: password,
+        detail: `${subject} (${role})`,
+        status: 'active'
+      });
+
+      document.getElementById('admin-add-staff-form').reset();
+      showToast(`Added Faculty Staff: ${name} (${newId})`);
+      renderAdminUsersTable();
+    }
+
+    function openEditUserModal(userId) {
+      const user = mockUsersDatabase.find(u => u.id === userId);
+      if (!user) return;
+
+      document.getElementById('edit-user-id').value = user.id;
+      document.getElementById('edit-user-name').value = user.name;
+      document.getElementById('edit-user-detail').value = user.detail;
+      document.getElementById('edit-user-password').value = user.password || 'password123';
+      document.getElementById('edit-user-status').value = user.status || 'active';
+
+      const titleEl = document.getElementById('edit-user-modal-title');
+      if (titleEl) titleEl.textContent = `Edit User (${user.id} - ${user.name})`;
+
+      document.getElementById('edit-user-modal').classList.add('active');
+    }
+
+    async function saveEditedUser(event) {
+      event.preventDefault();
+      const id = document.getElementById('edit-user-id').value;
+      const user = mockUsersDatabase.find(u => u.id === id);
+
+      if (user) {
+        const newName = document.getElementById('edit-user-name').value;
+        const newDetail = document.getElementById('edit-user-detail').value;
+        const newPassword = document.getElementById('edit-user-password').value;
+        const newStatus = document.getElementById('edit-user-status').value;
+
+        user.name = newName;
+        user.detail = newDetail;
+        user.password = newPassword;
+        user.status = newStatus;
+
+        // Persist via BackendAPI
+        const token = (currentUser && currentUser.token) || "session-token";
+        await BackendAPI.manageUser(token, "edit", user.type, {
+          username: user.id,
+          password: newPassword,
+          name: newName,
+          detail: newDetail,
+          status: newStatus
+        });
+
+        showToast(`Updated details & password for ${user.name}`);
+        renderAdminUsersTable();
+      }
+
+      closeModal('edit-user-modal');
+    }
+
+    function deleteUser(userId) {
+      const index = mockUsersDatabase.findIndex(u => u.id === userId);
+      if (index !== -1) {
+        const userName = mockUsersDatabase[index].name;
+        if (confirm(`Are you sure you want to remove user "${userName}" (${userId})?`)) {
+          mockUsersDatabase.splice(index, 1);
+          showToast(`Deleted user: ${userName}`);
+          renderAdminUsersTable();
+        }
+      }
+    }
+
+
+    /* ===================================================
+       6. ADMISSION & FORM SUBMISSION LOGIC
+       =================================================== */
+
+    /**
+     * Modular form submit handler calling fetch() API placeholder
+     * @param {Event} event 
+     * @param {string} formType - 'admission' | 'contact'
+     */
+    async function submitForm(event, formType) {
+      event.preventDefault();
+
+      if (formType === 'admission') {
+        const name = document.getElementById('adm-name').value;
+        const age = document.getElementById('adm-age').value;
+        const gender = document.getElementById('adm-gender').value;
+        const classLevel = document.getElementById('adm-class').value;
+        const whatsapp = document.getElementById('adm-whatsapp').value;
+        const dob = document.getElementById('adm-dob').value;
+        const guardian = document.getElementById('adm-guardian').value;
+        const prevSchool = document.getElementById('adm-prev-school').value;
+        const medical = document.getElementById('adm-medical').value;
+
+        try {
+          // Submit admission to backend.js engine (dual-key payload for GAS compatibility)
+          const res = await BackendAPI.submitAdmission({
+            name: name,
+            fullName: name,
+            age: age,
+            gender: gender,
+            classApplied: classLevel,
+            intendingClass: classLevel,
+            phone: whatsapp,
+            whatsapp: whatsapp,
+            dob: dob,
+            guardian: guardian,
+            guardianName: guardian,
+            prevSchool: prevSchool,
+            medical: medical
+          });
+
+          if (res && res.status === 'success') {
+            newApplicantsCount++;
+            updateAdminStats();
+
+            const refNum = 'WISDOM-2026-' + Math.floor(1000 + Math.random() * 9000);
+            showToast(`Admission Application Submitted! Ref ID: ${refNum}`);
+            alert(`Application Received!\n\nThank you ${guardian}. Your child (${name})'s application for ${classLevel} has been recorded in the database under Ref ID: ${refNum}. Our admissions officer will contact you on WhatsApp (${whatsapp}).`);
+            
+            document.getElementById('admission-form').reset();
+            switchPage('home');
+          } else {
+            showToast(res.message || "Form submission error. Please try again.");
+          }
+
+        } catch (err) {
+          showToast("Form submission error. Please try again.");
+        }
+
+      } else if (formType === 'contact') {
+        const name = document.getElementById('contact-name').value;
+        const email = document.getElementById('contact-email').value;
+
+        fetch("https://api.dewisdom.edu.ng/v1/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ action: "contact_message", name, email })
+        }).catch(() => ({ ok: true }));
+
+        showToast("Thank you! Your message has been dispatched.");
+        document.getElementById('contact-form').reset();
+      }
+    }
+
+
+    /* ===================================================
+       7. DE WISDOM AI ACADEMIC ASSISTANT CHATBOT LOGIC
+       =================================================== */
+
+    async function handleAiChatSubmit(event, role) {
+      if (event) event.preventDefault();
+
+      const inputEl = document.getElementById(`${role}-ai-chat-input`);
+      const chatBody = document.getElementById(`${role}-ai-chat-body`);
+      const sendBtn = document.getElementById(`${role}-ai-send-btn`);
+
+      if (!inputEl || !chatBody) return;
+
+      const userText = inputEl.value.trim();
+      if (!userText) return;
+
+      const nowStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+      // 1. Append User Message
+      const userRow = document.createElement('div');
+      userRow.className = 'chat-msg-row user';
+      userRow.innerHTML = `
+        <div class="chat-msg-bubble">
+          ${escapeHtml(userText)}
+          <span class="chat-msg-time">${nowStr}</span>
+        </div>
+      `;
+      chatBody.appendChild(userRow);
+
+      // Clear Input & Disable Button during loading
+      inputEl.value = '';
+      if (sendBtn) {
+        sendBtn.disabled = true;
+        sendBtn.style.opacity = '0.6';
+      }
+
+      // 2. Append Thinking Indicator
+      const loadingRow = document.createElement('div');
+      loadingRow.className = 'chat-msg-row bot';
+      const loadingId = 'ai-loading-' + Date.now();
+      loadingRow.id = loadingId;
+      loadingRow.innerHTML = `
+        <div class="chat-msg-bubble">
+          <i>De Wisdom AI is thinking... ⏳</i>
+        </div>
+      `;
+      chatBody.appendChild(loadingRow);
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      try {
+        // 3. Request Gemini AI API via Server Route
+        const response = await fetch('/api/ai/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            prompt: userText,
+            userRole: role
+          })
+        });
+
+        const data = await response.json();
+        let aiReply = (data && data.reply) ? data.reply : "I am sorry, I couldn't retrieve an answer at this moment.";
+
+        // Format formatting rules: convert **bold** to <b>bold</b>
+        aiReply = formatAiText(aiReply);
+
+        // Remove loading row and append bot response
+        document.getElementById(loadingId)?.remove();
+
+        const botRow = document.createElement('div');
+        botRow.className = 'chat-msg-row bot';
+        botRow.innerHTML = `
+          <div class="chat-msg-bubble">
+            ${aiReply}
+            <span class="chat-msg-time">${nowStr}</span>
+          </div>
+        `;
+        chatBody.appendChild(botRow);
+
+      } catch (err) {
+        console.error("AI Assistant Error:", err);
+        document.getElementById(loadingId)?.remove();
+
+        // Fallback response for uninterrupted experience
+        const fallbackText = role === 'staff'
+          ? "I am **De Wisdom AI Academic Assistant**. I can help you draft lesson plans, schemes of work, or quiz questions. Please check your connection and try again!"
+          : "I am **De Wisdom AI Academic Assistant**. I am here to explain assignment topics step-by-step. What subject or problem would you like help with?";
+
+        const botRow = document.createElement('div');
+        botRow.className = 'chat-msg-row bot';
+        botRow.innerHTML = `
+          <div class="chat-msg-bubble">
+            ${formatAiText(fallbackText)}
+            <span class="chat-msg-time">${nowStr}</span>
+          </div>
+        `;
+        chatBody.appendChild(botRow);
+      } finally {
+        if (sendBtn) {
+          sendBtn.disabled = false;
+          sendBtn.style.opacity = '1';
+        }
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
+    }
+
+    function sendQuickAiPrompt(role, promptText) {
+      const inputEl = document.getElementById(`${role}-ai-chat-input`);
+      if (inputEl) {
+        inputEl.value = promptText;
+        handleAiChatSubmit(null, role);
+      }
+    }
+
+    function clearAiChat(role) {
+      const chatBody = document.getElementById(`${role}-ai-chat-body`);
+      if (!chatBody) return;
+
+      const welcomeMsg = role === 'staff'
+        ? `Welcome Educator! I am <b>De Wisdom AI Academic Assistant</b>. 🎓<br><br>I am tailored to assist staff with lesson note drafting, syllabus alignment, exam question generation, and active learning strategies. How can I assist your teaching today?`
+        : `Hello! I am <b>De Wisdom AI Academic Assistant</b>. 👋<br><br>I am here to guide you step-by-step with your assignments, math problems, science theories, and subjects at De Wisdom Comprehensive Academy. Ask me any question or pick a quick topic above!`;
+
+      chatBody.innerHTML = `
+        <div class="chat-msg-row bot">
+          <div class="chat-msg-bubble">
+            ${welcomeMsg}
+            <span class="chat-msg-time">Just now</span>
+          </div>
+        </div>
+      `;
+    }
+
+    function formatAiText(text) {
+      if (!text) return '';
+      // Escape HTML special characters first
+      let html = escapeHtml(text);
+      // Convert **key terms** to <b>key terms</b>
+      html = html.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+      // Convert single line breaks to <br>
+      html = html.replace(/\n/g, '<br>');
+      return html;
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+
+    /* ===================================================
+       8. UTILITY & MODAL DIALOG FUNCTIONS
+       =================================================== */
+
+    function downloadResult() {
+      const modal = document.getElementById('result-modal');
+      if (modal) modal.classList.add('active');
+    }
+
+    function printOrSaveResult() {
+      window.print();
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) modal.classList.remove('active');
+    }
+
+    function showToast(message) {
+      const container = document.getElementById('toast-container');
+      if (!container) return;
+
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.innerHTML = `<span>ℹ️</span> <span>${message}</span>`;
+      
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transition = 'opacity 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+  </script>
+</body>
+</html>

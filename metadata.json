@@ -1,0 +1,6 @@
+{
+  "name": "De Wisdom Comprehensive Academy",
+  "description": "A clean, responsive single-page school website with interactive Student, Staff, Admin portals, Admission portal, and minimal design.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
